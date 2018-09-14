@@ -16,29 +16,27 @@ FORM FIELDS SUB-PACKAGE AND VALIDATORS LIKE (`mvccore/ext-form-field-*`).**
 
 <br />
 
-MvcCore extension with base form and field classes to create and render web forms with 
+MvcCore extension with all subextensions to create and render web forms with 
 HTML5 controls, to handle and validate submited user data, to manage forms sessions 
 for default values, to manage user input errors and to extend and develop custom fields 
 and field groups.
 
-This class can not exist alone without any form field extension(s) like: `mvccore/ext-form-field-*`
-to have possiblity to create specific field(s) in youf form instance. If you want to use all 
-fields and validators, use extension [`mvccore/ext-form-all`](https://github.com/mvccore/ext-form-all) instead of `mvccore/ext-form`.
-This extension is only part of whole thing to not have too much field classes code in small aplications.
+This package contains all MvcCore form and field classes, which means approximately 130 \*.php files
+with classes, interfaces and traits. It can be used without any other MvcCore form subextensions.
+But if you want to create application with only code the application needs, you don't want to use 
+this huge metadata package, but base form package (`mvccore/ext-form`) and specific fields package like: 
+`mvccore/ext-form-field-*` to have possiblity to create specific field(s) in youf empty form instance.
 
 ## Installation
 ```shell
-composer require mvccore/ext-form
-
-# Than install any form field extension like: mvccore/ext-form-field-*
-composer require mvccore/ext-form-field-text
+composer require mvccore/ext-form-all
 ```
 
 ### Form Extensible Packages Map
 
-- [`mvccore/ext-form-all`](https://github.com/mvccore/ext-form-all)&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;									- Main huge extension with all subextensions to render web forms, handle  
+- `mvccore/ext-form-all`&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;									- Main huge extension with all subextensions to render web forms, handle  
 						&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;		submits, managing fields, sessions and errors, extension with all form packages.  
-- `mvccore/ext-form`	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&thinsp;&thinsp;&thinsp;												- Form extension with only base form and field classes.  
+- [`mvccore/ext-form`](https://github.com/mvccore/ext-form)	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&thinsp;&thinsp;&thinsp;												- Form extension with only base form and field classes.  
 - [`mvccore/ext-form-field-text`](https://github.com/mvccore/ext-form-field-text)			&emsp;&emsp;&emsp;&nbsp;&thinsp;					- Fields extension with input field types text, email, password, search, tel, url and textarea.
 - [`mvccore/ext-form-field-numeric`](https://github.com/mvccore/ext-form-field-numeric)		&emsp;&emsp;										- Fields extension with input field types number and range.  
 - [`mvccore/ext-form-field-selection`](https://github.com/mvccore/ext-form-field-selection)	&emsp;												- Fields extension with fields select, country select, checkbox(es), radios and color.  
@@ -62,7 +60,7 @@ composer require mvccore/ext-form-field-text
 - different/custom result states for multiple submit buttons
 
 ### Fields
-- build in fields in `mvccore/ext-form`:
+- build in fields in [`mvccore/ext-form`](https://github.com/mvccore/ext-form):
 	- base `Field` and `FieldsGroup` clases to extend any control with your custom functionality
 	- `input:hidden`
 	- `datalist`
@@ -96,7 +94,7 @@ composer require mvccore/ext-form-field-text
 
 ### Validators
 Each form control has always naturaly configured validator(s) by type.
-- build in validators in every field and in `mvccore/ext-form`:
+- build in validators in every field and in [`mvccore/ext-form`](https://github.com/mvccore/ext-form):
 	- required, readOnly, disabled...
 	- safe string (keep characters to safely display submitted value in response - XSS protection)
 - extended text fields in [`mvccore/ext-form-field-text`](https://github.com/mvccore/ext-form-field-text):
