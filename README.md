@@ -33,6 +33,8 @@ composer require mvccore/ext-form-all
 ```
 
 ### Form Extensible Packages Map
+You need this map only if you are using MvcCore forms with base form package (`mvccore/ext-form`) and specific field package (like: `mvccore/ext-form-field-*`) to build application with only code app needs.  
+If you are using this package `mvccore/ext-form-all`, you don't need this map.
 
 - `mvccore/ext-form-all`&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;									- Main huge extension with all subextensions to render web forms, handle  
 						&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;		submits, managing fields, sessions and errors, extension with all form packages.  
