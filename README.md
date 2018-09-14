@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/badge/Licence-BSD-brightgreen.svg?style=plastic)](https://mvccore.github.io/docs/mvccore/4.0.0/LICENCE.md)
 ![PHP Version](https://img.shields.io/badge/PHP->=5.3-brightgreen.svg?style=plastic)
 
-<br /><br />
+<br />
 
 **THIS IS ONLY METADATA PACKAGE CONNECTING ALL FORM FIELD CLASSES AND VALIDATORS!**
 
@@ -14,7 +14,7 @@
 USE PACKAGE [`mvccore/ext-form`](https://github.com/mvccore/ext-form-all) INSTEAD WITH YOUR FAVOURITE  
 FORM FIELDS SUB-PACKAGE AND VALIDATORS LIKE (`mvccore/ext-form-field-*`).**
 
-<br /><br />
+<br />
 
 MvcCore extension with base form and field classes to create and render web forms with 
 HTML5 controls, to handle and validate submited user data, to manage forms sessions 
