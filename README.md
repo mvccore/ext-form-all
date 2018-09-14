@@ -9,10 +9,10 @@
 **IF YOU JUST WANT TO CREATE A FORM VERY QUICKLY, USE THIS PACKAGE WITH ALL FIELDS AND VALIDATORS.**
 
 **IF YOU WANT TO CREATE PRECISE APPLICATION WITH ONLY NECESSARY CODE,  
-USE PACKAGE [`mvccore/ext-form-all`](https://github.com/mvccore/ext-form-all) INSTEAD WITH YOUR FAVOURITE FORM FIELDS SUB-PACKAGE (`mvccore/ext-form-field-*`) AND VALIDATORS!**
+USE PACKAGE [`mvccore/ext-form-all`](https://github.com/mvccore/ext-form-all) INSTEAD WITH YOUR FAVOURITE  
+FORM FIELDS SUB-PACKAGE AND VALIDATORS LIKE (`mvccore/ext-form-field-*`).**
 
-
-
+<br /><br /><br /><br />
 
 MvcCore extension with base form and field classes to create and render web forms with 
 HTML5 controls, to handle and validate submited user data, to manage forms sessions 
