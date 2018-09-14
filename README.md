@@ -4,14 +4,14 @@
 [![License](https://img.shields.io/badge/Licence-BSD-brightgreen.svg?style=plastic)](https://mvccore.github.io/docs/mvccore/4.0.0/LICENCE.md)
 ![PHP Version](https://img.shields.io/badge/PHP->=5.3-brightgreen.svg?style=plastic)
 
-<br />
+<br /><br />
 
 **THIS IS ONLY METADATA PACKAGE CONNECTING ALL FORM FIELD CLASSES AND VALIDATORS!**
 
 **IF YOU JUST WANT TO CREATE A FORM VERY QUICKLY, USE THIS PACKAGE WITH ALL FIELDS AND VALIDATORS.**
 
 **IF YOU WANT TO CREATE PRECISE APPLICATION WITH ONLY NECESSARY CODE,  
-USE PACKAGE [`mvccore/ext-form-all`](https://github.com/mvccore/ext-form-all) INSTEAD WITH YOUR FAVOURITE  
+USE PACKAGE [`mvccore/ext-form`](https://github.com/mvccore/ext-form-all) INSTEAD WITH YOUR FAVOURITE  
 FORM FIELDS SUB-PACKAGE AND VALIDATORS LIKE (`mvccore/ext-form-field-*`).**
 
 <br /><br />
