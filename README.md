@@ -1,76 +1,161 @@
-# MvcCore Extension - Form - All
+# MvcCore Extension - Form
 
-[![Latest Stable Version](https://img.shields.io/badge/Stable-v4.3.1-brightgreen.svg?style=plastic)](https://github.com/mvccore/ext-form-all/releases)
+[![Latest Stable Version](https://img.shields.io/badge/Stable-v4.3.1-brightgreen.svg?style=plastic)](https://github.com/mvccore/ext-form/releases)
 [![License](https://img.shields.io/badge/Licence-BSD-brightgreen.svg?style=plastic)](https://mvccore.github.io/docs/mvccore/4.0.0/LICENCE.md)
 ![PHP Version](https://img.shields.io/badge/PHP->=5.3-brightgreen.svg?style=plastic)
 
-MvcCore extension with with all form packages to create and render web forms with HTML5 controls, 
-to handle and validate submited user data, to manage forms sessions for default values, to manage 
-user input errors and to extend and develop custom fields and field groups.
+**THIS IS ONLY METADATA PACKAGE WITH ALL FORM FIELD CLASSES!  
+IF YOU JUST WANT TO CREATE A FORM VERY QUICKLY, USE THIS PACKAGE WITH ALL FIELDS AND VALIDATORS. 
+IF YOU WANT TO CREATE PRECISE APPLICATION WITH ONLY NECESSARY CODE, USE PACKAGE [`mvccore/ext-form-all`](https://github.com/mvccore/ext-form-all) INSTEAD WITH YOUR FAVOURITE FORM FIELDS SUB-PACKAGE AND VALIDATORS!**
+
+MvcCore extension with base form and field classes to create and render web forms with 
+HTML5 controls, to handle and validate submited user data, to manage forms sessions 
+for default values, to manage user input errors and to extend and develop custom fields 
+and field groups.
+
+This class can not exist alone without any form field extension(s) like: `mvccore/ext-form-field-*`
+to have possiblity to create specific field(s) in youf form instance. If you want to use all 
+fields and validators, use extension [`mvccore/ext-form-all`](https://github.com/mvccore/ext-form-all) instead of `mvccore/ext-form`.
+This extension is only part of whole thing to not have too much field classes code in small aplications.
 
 ## Installation
 ```shell
-composer require mvccore/ext-form-all
+composer require mvccore/ext-form
+
+# Than install any form field extension like: mvccore/ext-form-field-*
+composer require mvccore/ext-form-field-text
 ```
 
-## Features
+### Form Extensible Packages Map
+
+- [`mvccore/ext-form-all`](https://github.com/mvccore/ext-form-all)&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;									- Main huge extension with all subextensions to render web forms, handle  
+						&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;		submits, managing fields, sessions and errors, extension with all form packages.  
+- `mvccore/ext-form`	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&thinsp;&thinsp;&thinsp;												- Form extension with only base form and field classes.  
+- [`mvccore/ext-form-field-text`](https://github.com/mvccore/ext-form-field-text)			&emsp;&emsp;&emsp;&nbsp;&thinsp;					- Fields extension with input field types text, email, password, search, tel, url and textarea.
+- [`mvccore/ext-form-field-numeric`](https://github.com/mvccore/ext-form-field-numeric)		&emsp;&emsp;										- Fields extension with input field types number and range.  
+- [`mvccore/ext-form-field-selection`](https://github.com/mvccore/ext-form-field-selection)	&emsp;												- Fields extension with fields select, country select, checkbox(es), radios and color.  
+- [`mvccore/ext-form-field-date`](https://github.com/mvccore/ext-form-field-date)			&emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			- Fields extension with input field types date, datetime, time, week and month.  
+- [`mvccore/ext-form-field-button`](https://github.com/mvccore/ext-form-field-button)		&emsp;&emsp;&thinsp;&thinsp;						- Fields extension with button fields and input submit fields.  
+- [`mvccore/ext-form-field-file`](https://github.com/mvccore/ext-form-field-file)			&emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			- Fields extension with input type file(s) with upload validation.  
+- [`mvccore/ext-form-validator-special`](https://github.com/mvccore/ext-form-validator-special)&thinsp;&thinsp;									- Validators only extension with special text and numeric validators.
+
+
+## Main Features
+- create dynamic forms with variable assigned fields
+- All HTML5 fields and atributes
+- build in validator in every field by it's type
+- automatic/customizable CSRF and XSS protection
+- managing error messagess in session
+- rendefing forms by default or by it's template
+- rendefing any custom or build-in field by default or by it's template
+- very extensible form class and field classes
+- very extensible supporting javascripts for any fields
+- translations, session data management
+- different/custom result states for multiple submit buttons
+
+### Fields
+- build in fields in `mvccore/ext-form`:
+	- base `Field` and `FieldsGroup` clases to extend any control with your custom functionality
+	- `input:hidden`
+	- `datalist`
+- extended text fields in [`mvccore/ext-form-field-text`](https://github.com/mvccore/ext-form-field-text): 
+	- `input:text`, `:password`, `:email`, `:search`, `:tel`, `:url`
+	- `textarea`
+- extended numeric fields in [`mvccore/ext-form-field-numeric`](https://github.com/mvccore/ext-form-field-numeric):
+	- `input:number`, `:range` (slider) and multiple `input:range`
+- extended selection fields in [`mvccore/ext-form-field-selection`](https://github.com/mvccore/ext-form-field-selection):
+	- `select` (multi select)
+	- country `select`
+	- `input:checkbox`
+	- `input:checkbox` group
+	- `input:radio` (radio button, switch)
+	- `input:color`
+- extended date fields in [`mvccore/ext-form-field-date`](https://github.com/mvccore/ext-form-field-date):
+	- `input:date`
+	- `input:datetime-local`
+	- `input:time`
+	- `input:week`
+	- `input:month`
+- extended button fields in [`mvccore/ext-form-field-button`](https://github.com/mvccore/ext-form-field-button): 
+	- `input:submit`
+	- `input:reset`
+	- `button`
+	- `button:reset`
+	- `button:submit`
+	- `input:image`
+- extended file field in [`mvccore/ext-form-field-file`](https://github.com/mvccore/ext-form-field-file): 
+	- `input:file` with multiple option and validation
+
+### Validators
+Each form control has always naturaly configured validator(s) by type.
+- build in validators in every field and in `mvccore/ext-form`:
+	- required, readOnly, disabled...
+	- safe string (keep characters to safely display submitted value in response - XSS protection)
+- extended text fields in [`mvccore/ext-form-field-text`](https://github.com/mvccore/ext-form-field-text):
+	- email - to check if email(s) is/are valid form or not
+	- min. and max. text length
+	- password - to check password strength by configured rules
+	- pattern - PHP preg_match by `pattern` control attribute
+	- url (to check if string is url or not)
+	- tel (only to clean not allowed chars in phone number)
+	- ZIP code (to check international ZIP code form)
+- extended numeric fields in [`mvccore/ext-form-field-numeric`](https://github.com/mvccore/ext-form-field-numeric):
+	- number (integer or float, min., max. and step)
+	- range (min., max. and step)
+- extended selection fields in [`mvccore/ext-form-field-selection`](https://github.com/mvccore/ext-form-field-selection):
+	- checkbox - checked
+	- value in options (check if submitted value exists in options or not, for selects, country selects, checkbox group and radios)
+	- min./max. options selected
+	- hexadecimal non-transparent color
+- extended date fields in [`mvccore/ext-form-field-date`](https://github.com/mvccore/ext-form-field-date):
+	- date - if date has correct format and check min. max. and step
+	- datetime, time, week and month validators are extended from date validator
+- extended file field in [`mvccore/ext-form-field-file`](https://github.com/mvccore/ext-form-field-file)
+	- files validator to check everything possible in uploaded file(s) (by magic bytes and more)
+- extended special validators in [`mvccore/ext-form-validator-special`](https://github.com/mvccore/ext-form-validator-special)
+	- EU company ID/VAT ID
+	- credit card (only checking number checksum)
+	- iban bank account number (only checking number checksum)
+	- hexadecimal number
+	- IP address (IPv4 and IPV6 format checking)
+	- international ZIP code format checking
+	
+### All About Features
 - creates, renders and submits dynamicly created web forms without needs to specify 
-  any static model class for form model (like in stupid classic .NET MVC forms)
-- possibility to extend form itself, any field, field group or validator
-- automaticly preconfigured controls for specific types with predefined validators
-- every form (GET/POST...) has it's own cross site request forgery (CSRF) hidden 
-	input with token name and token value to check if form was submitted by specific 
-	user session and not by any foreing atacker javascript
-- control types:
-	- text inputs: text, password, email, hidden
-	- number inputs: number, range (slider), multi range
-	- selects: select, multi-select, country select
-	- checkboxes: single checkbox, checkbox group
-	- radio buttons
-	- buttons: submit button, reset button, common button, input:submit
-	- textarea
-	- dates: date, time, datetime
-	- no-type input to extend basic input with your custom functionality
-- submit validators (each form control has naturaly configured validator(s) by type):
-	- required (for all fields by it's configuration)
-	- texts:
-		- safe string (safe characters for database operations)
-		- max. length
-		- preg_replace pattern
-		- special:
-			- email
-			- url
-			- ZIP code
-			- phone
-	- numbers:
-		- integer
-		- number
-		- float
-		- range (min. & max.)
-	- options
-		- checkbox - checked
-		- select - value in options
-		- min/max selected options
-	- special
-		- EU company ID/VAT ID
-- custom js/css assets for any field type
-	- possible to render immediately after form HTML body
-	- possible to render as external linked file by custom renderer or custom response appender
-- error messages - stored in session only for one hook
-- loading default values or previous submit values from session
-- clearing session after submitting
-- declarating error url, success url (next step url for special developer implementations)
+  any static model class for form model (like in classic .NET MVC forms)
+- implemented all HTML5 form attributes, all HTML5 fields and their HTML5 and older atributes
+- every field has it's build-in default validator and it's possible to define any other or all field validators by you
+- automatic/customizable CSRF and XSS protection
+	- every form (GET/POST) has it's own cross site request forgery (CSRF) hidden 
+  	  input with token name and token value to check if form was submitted by specific 
+  	  user session and not by any foreing atacker javascript code
+	- possiblity to manage CSRF protection by your own
+	- all field where is possible to pass dangerous characters for XSS attack are protected by validator
+  	  for XSS safe string by default. It's possible to remove this validator and implement it's own protection
+- error messages - stored in session only for one form submit, rendered automaticly
 - templates rendering automaticly or by custom template
 	- naturaly rendered form has each control in empty div
 	- rendered custom template shoud have any content and CSRF tokens are creted
 	  automaticly by `$form->RenderFormBegin();`
-	- any complex form control shoud have also it's own custom template
+	- any complex form control could have also it's own custom template
 	- any form or control template has automaticly asigned properties 
 	  from it's local `$this` context and original `$controller->View` from 
 	  controller passed into form `__construct();` is asigned into `$this->View`.
-- every visible form shoud be translated by configured translator callable
-- form have build-in language property (for translator) and locale for advanced fields and validators
-- posibility to extend build-in javascripts by checkout and extend: "[**mvccore/ext-form-js**](https://github.com/mvccore/ext-form-js)"
+- possibility to extend form itself, any field, field group or validator, you can use build-in interfaces, 
+  abstract classes and traits
+- custom js/css assets for any field type
+	- possible to render immediately after form HTML body (by default)
+	- possible to render as external linked file by custom renderer or custom response appending script/solution
+	- posibility to extend build-in javascripts by checkout and extend:
+	  "[**mvccore/ext-form-js**](https://github.com/mvccore/ext-form-js)"
+- translations, session data management
+	- every visible form shoud be translated by configured translator callable into form instance
+	- loading default values or previous submit values from session
+	- possible to optionally clear session after submitting
+- different/custom result states for multiple submit buttons
+	- declarating error url, success url (previous and next step url for special developer implementations)
+	- possibility to define for any submit button custom form result state to recognize what to do next
+- form have build-in language property (for translator) and locale property for advanced fields and validators
 
 ## Examples
 - [**Example - CD Collection (mvccore/example-cdcol)**](https://github.com/mvccore/example-cdcol)
@@ -130,205 +215,3 @@ if ($result == \MvcCore\Ext\Form::RESULT_SUCCESS) {
 // or error url (by internal $form->Result property):
 $form->SubmittedRedirect();
 ```
-
-### Form Extensible Packages Map
-
-- `ext-form-all`					MvcCore extension to render web forms, handle submits, managing fields, sessions and errors, extension with all form packages.
-	- `ext-form`					MvcCore form extension with base classes.
-	- `ext-form-field-text`			MvcCore form extension with input field types text, email, password, search, tel, url and textarea field.
-	- `ext-form-field-numeric`		MvcCore form extension with input field types number and range.
-	- `ext-form-field-selection`	MvcCore form extension with fields select, country select, checkbox(es) and radios.
-	- `ext-form-field-date`			MvcCore form extension with input field types date, datetime, time, week and month.
-	- `ext-form-field-button`		MvcCore form extension with button fields and input submit fields.
-	- `ext-form-field-special`		MvcCore form extension with input type file and color.
-	- `ext-form-validator-special`	MvcCore form extension with special text and numeric validators.
-	
-- `ext-form`
-	+ Form
-		- AddMethods.php
-		- Assets.php
-		- ConfigProps.php
-		- Csrf.php
-		- FieldMethods.php
-		- GetMethods.php
-		- InternalProps.php
-		- Rendering.php
-		- Session.php
-		- SetMethods.php
-		- Submitting.php
-	+ Forms
-		+ assets
-			+ fields
-				- checkbox-group.js
-				- range.css
-				- range.js
-				- reset.js
-			- mvccore-form.js
-		+ Field
-			+ Props
-				- AccessKey.php
-				- AutoComplete.php
-				- AutoFocus.php
-				- DataList.php
-				- Disabled.php
-				- GroupCssClasses.php
-				- GroupLabelAttrs.php
-				- InputMode.php
-				- Label.php
-				- Multiple.php
-				- Options.php
-				- PlaceHolder.php
-				- ReadOnly.php
-				- Required.php
-				- Size.php
-				- TabIndex.php
-				- VisibleField.php
-				- Wrapper.php
-			- Getters.php
-			- Props.php
-			- Rendering.php
-			- Setters.php
-		+ Fields
-			- IDataList.php
-			- IMultiple.php
-			- ILabel.php
-			- IOptions.php
-			- ISubmit.php
-			- IVisibleField.php
-			- DataList.php
-			- Hidden.php
-		+ Validators
-			- SafeString.php
-		- Field.php
-		- FieldsGroup.php
-		- IError.php
-		- IField.php
-		- IFieldsGroup.php
-		- IForm.php
-		- IValidator.php
-		- IView.php
-		- Validator.php
-		- View.php
-	- Form.php
-
-- `ext-form-field-text`
-	+ Forms
-		+ Field
-			+ Props
-				- MinMaxLength.php
-				- Pattern.php
-				- RowsColsWrap.php
-				- SpellCheck.php
-		+ Fields
-			- IMinMaxLength.php
-			- IPattern.php
-			- Email.php
-			- Password.php
-			- Search.php
-			- Tel.php
-			- Text.php
-			- Textarea.php
-			- Url.php
-	+ Forms
-		+ Validators
-			- Email.php
-			- MinMaxLength.php
-			- Password.php
-			- Pattern.php
-			- Tel.php
-			- Url.php
-			
-- `ext-form-field-numeric`
-	+ Forms
-		+ Field
-			+ Props
-				- MinMaxStepNumbers.php
-		+ Fields
-			- IMinMaxStepNumbers.php
-			- INumber.php
-			- Number.php
-			- Range.php
-		+ Validators
-			- Float.php
-			- Integer.php
-			- Number.php
-			- Range.php
-			
-- `ext-form-field-selection`
-	+ Forms
-		+ Field
-			+ Props
-				- Checked.php
-				- MinMaxOptions.php
-				- NullOptionText.php
-		+ Fields
-			- IMinMaxOptions
-			- IChecked.php.php
-			- CountrySelect.php
-			- Select.php
-			- Checkbox.php
-			- CheckboxGroup.php
-			- RadioGroup.php
-		+ Validators
-			- MinMaxOptions.php
-			- ValueInOptions.php
-			
-- `ext-form-field-dates`
-	+ Forms
-		+ Field
-			+ Props
-				- Format.php
-				- MinMaxStepDates.php
-		+ Fields
-			- IFormat.php
-			- IMinMaxStepDates.php
-			- Date.php
-			- DateTime.php
-			- Month.php
-			- Time.php
-			- Week.php
-		+ Validators
-			- Date.php
-			- DateTime.php
-			- Month.php
-			- Time.php
-			- Week.php
-		
-- `ext-form-field-button`
-	+ Forms
-		+ Field
-			+ Props
-				- FormAttrs.php
-				- Submit.php
-				- WidthHeight.php
-		+ Fields
-			- Button.php
-			- ResetButton.php
-			- ResetInput.php
-			- SubmitButton.php
-			- SubmitInput.php
-			- Image.php
-		
-- `ext-form-field-special`
-	+ Forms
-		+ Field
-			+ Props
-				- Files.php
-		+ Fields
-			- IFiles.php
-			- Color.php
-			- File.php
-		+ Validators
-			- Color.php
-			- Files.php
-		
-- `ext-form-validator-special`
-	+ Forms
-		+ Validators
-			- CompanyIdEu.php
-			- CompanyVatIdEu.php
-			- CreditCard.php
-			- Hex.php
-			- Iban.php
-			- Ip.php
-			- ZipCode.php
