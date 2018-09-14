@@ -90,7 +90,7 @@ If you are using this package `mvccore/ext-form-all`, you don't need this map.
 	- `input:reset`
 	- `input:submit`
 	- `input:image`
-	- `button`
+	- `button:button`
 	- `button:reset`
 	- `button:submit`
 - extended file field in [`mvccore/ext-form-field-file`](https://github.com/mvccore/ext-form-field-file): 
