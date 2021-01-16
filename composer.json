@@ -58,7 +58,6 @@
 		"mvccore/ext-form-field-selection": "^5.0",
 		"mvccore/ext-form-field-date": "^5.0",
 		"mvccore/ext-form-field-button": "^5.0",
-		"mvccore/ext-form-field-special": "^5.0",
 		"mvccore/ext-form-validator-special": "^5.0"
 	},
 	"minimum-stability": "dev"
