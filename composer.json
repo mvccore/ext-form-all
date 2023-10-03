@@ -53,12 +53,13 @@
 		"php": ">=5.4.0",
 		"mvccore/mvccore": "^5.2",
 		"mvccore/ext-form": "^5.2",
-		"mvccore/ext-form-field-text": "^5.1",
-		"mvccore/ext-form-field-numeric": "^5.1",
-		"mvccore/ext-form-field-selection": "^5.1",
+		"mvccore/ext-form-field-text": "^5.2",
+		"mvccore/ext-form-field-numeric": "^5.2",
+		"mvccore/ext-form-field-selection": "^5.2",
 		"mvccore/ext-form-field-date": "^5.2",
+		"mvccore/ext-form-field-file": "^5.2",
 		"mvccore/ext-form-field-button": "^5.2",
-		"mvccore/ext-form-validator-special": "^5.1"
+		"mvccore/ext-form-validator-special": "^5.2"
 	},
 	"minimum-stability": "dev"
 }
